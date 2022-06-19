@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import LoadingState from '@/components/Statics/Loading'
 import ErrorState from '@/components/Layouts/Error'
 const GridBlockLayout = import('@/components/Widget/Grid/')
@@ -173,7 +174,17 @@ export default {
       ],
     }
   },
-  methods: {},
+  created() {
+    // this.initItems()
+  },
+  methods: {
+    ...mapActions({
+      getItems: 'Item/getAll',
+    }),
+    async initItems() {
+      this.items = await this.getItems()
+    },
+  },
 }
 </script>
 <style></style>
