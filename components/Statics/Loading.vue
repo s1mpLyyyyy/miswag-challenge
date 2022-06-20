@@ -6,34 +6,7 @@
 </template>
 
 <script>
-export default {
-  // props: {
-  //   item: {
-  //     type: Object,
-  //   },
-  // },
-  // data() {
-  //   return { properties: {} }
-  // },
-  // created() {
-  //   this.properties = this.gridStyle()
-  // },
-  // methods: {
-  //   gridStyle() {
-  //     const properties = {
-  //       marginY:
-  //         this.item.properties.outer_top_bottom_margins ??
-  //         this.item.properties.top_bottom_margins,
-
-  //       marginX:
-  //         this.item.properties.outer_left_right_margins ??
-  //         this.item.properties.left_right_margins,
-  //     }
-  //     return properties
-  //   },
-  //   directionStyle: (direction) => (direction === 'vertical' ? 'cols' : 'rows'),
-  // },
-}
+export default {}
 </script>
 
 <style></style>

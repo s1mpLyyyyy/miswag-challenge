@@ -2,22 +2,19 @@
   <div
     id="GridBlockLayout"
     class="flex items-center justify-center overflow-x-hidden"
-    :class="`
-    mx-${properties.marginX} 
-    my-${properties.marginY}  
-    `"
+    :class="`mx-${properties.marginX} my-${properties.marginY}`"
     style="max-width: 50vw"
   >
     <div
       class="grid"
       :class="[
-        checkDirection(properties.direction)
+        isHorizontal(properties.direction)
           ? `horizontal_direction grid-rows-${properties.rows}`
           : `grid-cols-${properties.cols}`,
       ]"
     >
       <product-card-layout
-        v-for="(product, productIndex) in item.content"
+        v-for="(product, productIndex) in block.content"
         :key="productIndex"
         :class="`px-${properties.paddingX} py-${properties.paddingY}`"
         :product="product"
@@ -32,10 +29,9 @@ export default {
   name: 'GridBlockLayout',
   components: { ProductCardLayout },
   props: {
-    item: {
+    block: {
       type: Object,
       required: true,
-      default: () => {},
     },
   },
   data() {
@@ -48,19 +44,17 @@ export default {
   },
   methods: {
     gridStyle() {
-      const properties = {
-        paddingY: this.item.properties.inner_top_bottom_spacing ?? 16,
-        paddingX: this.item.properties.inner_left_right_spacing ?? 16,
-        marginY: this.item.properties.outer_top_bottom_margins ?? 8,
-        marginX: this.item.properties.outer_left_right_margins ?? 16,
-        rows: this.item.properties.rows ?? 1,
-        cols: this.item.properties.cols ?? 1,
-        direction: this.item.properties.direction ?? 'vertical',
+      return {
+        paddingY: this.block.properties.inner_top_bottom_spacing ?? 16,
+        paddingX: this.block.properties.inner_left_right_spacing ?? 16,
+        marginY: this.block.properties.outer_top_bottom_margins ?? 8,
+        marginX: this.block.properties.outer_left_right_margins ?? 16,
+        rows: this.block.properties.rows ?? 1,
+        cols: this.block.properties.cols ?? 1,
+        direction: this.block.properties.direction ?? 'vertical',
       }
-
-      return properties
     },
-    checkDirection: (direction) => direction === 'horizontal',
+    isHorizontal: (direction) => direction === 'horizontal',
   },
 }
 </script>

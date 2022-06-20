@@ -9,13 +9,13 @@
       :has-indicator="properties.hasIndicator"
       style="max-width: 50vw"
     >
-      <div
-        v-for="(product, index) in item.content"
-        :key="index"
-        class="px-5 touch-manipulation"
-      >
+      <div v-for="(product, index) in block.content" :key="index" class="px-5">
         <a :href="'#' + product.action.target" class="">
-          <img :src="product.image" class="w-full h-full" alt="" />
+          <img
+            :src="product.image"
+            class="w-full h-full"
+            :alt="'Product title'"
+          />
         </a>
       </div>
     </slick-slider-layout>
@@ -28,10 +28,9 @@ export default {
   name: 'SliderBlockLayout',
   components: { SlickSliderLayout },
   props: {
-    item: {
+    block: {
       type: Object,
       required: true,
-      default: () => {},
     },
   },
   data() {
@@ -44,16 +43,14 @@ export default {
   },
   methods: {
     sliderStyle() {
-      const properties = {
-        // ⏲ vue-slick-carousel slide animation only in millisecond
+      return {
         slideInterval: this.convertToMilisec(
-          this.item.properties.slide_interval
+          this.block.properties.slide_interval
         ),
-        marginY: this.item.properties.top_bottom_margins ?? 0,
-        marginX: this.item.properties.left_right_margins ?? 0,
-        hasIndicator: this.item.properties.has_indicator ?? true,
+        marginY: this.block.properties.top_bottom_margins ?? 0,
+        marginX: this.block.properties.left_right_margins ?? 0,
+        hasIndicator: this.block.properties.has_indicator ?? true,
       }
-      return properties
     },
     convertToMilisec: (sec = 0) => sec * 1000,
   },

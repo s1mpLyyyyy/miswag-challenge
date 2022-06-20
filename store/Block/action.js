@@ -1,9 +1,5 @@
-/**
- * All The actions (Connection with the API GOES HERE) 🙉
- */
-
 export default {
-  async getAll({ commit }) {
+  async getAllBlocks({ commit }) {
     try {
       const { data } = await this.$axios.get(`/items`)
       return JSON.stringify(data)
@@ -15,8 +11,7 @@ export default {
       }
     }
   },
-
   change({ commit }, { key, value, mutation = 'setChange' }) {
-    commit(`${mutation}`, { key, value })
+    commit(mutation, { key, value })
   },
 }

@@ -5,7 +5,7 @@ import state from './state'
 
 export default {
   namespaced: true,
-  name: 'Item',
+  name: 'Block',
   actions,
   getters,
   mutations,

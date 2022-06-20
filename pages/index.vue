@@ -1,17 +1,16 @@
 <template>
   <div id="HomePage" class="flex flex-col justify-center items-center">
-    <div v-for="(item, itemIndex) in items" :key="`item-Index____${itemIndex}`">
-      <!-- Keeping data values alive as you switch (cached) -->
-      <keep-alive>
-        <!-- Dynamic components -->
-        <component :is="item.type" :item="item" />
-      </keep-alive>
+    <div
+      v-for="(block, blockIndex) in blocks"
+      :key="`block-Index____${blockIndex}`"
+    >
+      <component :is="block.type" :block="block" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 import LoadingState from '@/components/Statics/Loading'
 import ErrorState from '@/components/Layouts/Error'
 const GridBlockLayout = import('@/components/Widget/Grid/')
@@ -25,14 +24,9 @@ export default {
           resolve(SliderBlockLayout)
         }, 500)
       }),
-      // LoadingState is the component that is displayed while our default component
-      // is loading
       loading: LoadingState,
-      // ErrorState is the component that is displayed should our default component have an // error while loading
       error: ErrorState,
-      // A delay is set up before the loading component is shown
       delay: 0,
-      // Should this timeout be reached, the default component is considered to have failed // to load
       timeout: 2000,
     }),
     grid: () => ({
@@ -49,7 +43,7 @@ export default {
   },
   data() {
     return {
-      items: [
+      blocks: [
         {
           id: '6E9F0971-229D-4694-8515-7FEE753D2B10',
           properties: {
@@ -175,15 +169,15 @@ export default {
     }
   },
   created() {
-    // this.initItems()
+    // this.initBlocks()
   },
   methods: {
-    ...mapActions({
-      getItems: 'Item/getAll',
-    }),
-    async initItems() {
-      this.items = await this.getItems()
-    },
+    // ...mapActions({
+    //   getBlocks: 'Item/getAllItems',
+    // }),
+    // async initBlocks() {
+    //   this.blocks = await this.getBlocks()
+    // },
   },
 }
 </script>

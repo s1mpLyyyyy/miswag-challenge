@@ -1,13 +1,12 @@
 <template>
   <div id="SliderComponentShared" class="relative">
-    <vue-slick-carousel v-bind="{ ...settings, speed: sliderSpeed }">
+    <vue-slick-carousel v-bind="settings">
       <slot />
     </vue-slick-carousel>
   </div>
 </template>
 
 <script>
-// slider package import with css
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -19,11 +18,13 @@ export default {
   props: {
     sliderSpeed: {
       type: Number,
+      required: false,
       default: () => 0,
     },
     hasIndicator: {
       type: Boolean,
-      default: () => true, //  appeared if slides are more than 1
+      required: false,
+      default: () => true,
     },
   },
 
@@ -31,8 +32,8 @@ export default {
     return {
       settings: {
         dots: this.hasIndicator,
+        speed: this.sliderSpeed,
         arrows: false,
-        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
