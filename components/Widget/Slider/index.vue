@@ -3,11 +3,12 @@
     id="SliderBlockLayout"
     class="flex justify-center items-center"
     :class="`mx-${properties.marginX} my-${properties.marginY}`"
+    style="max-width: 40vw"
   >
     <slick-slider-layout
       :slider-speed="properties.slideInterval"
       :has-indicator="properties.hasIndicator"
-      style="max-width: 50vw"
+      class="w-full"
     >
       <div v-for="(product, index) in block.content" :key="index" class="px-5">
         <a :href="'#' + product.action.target" class="">

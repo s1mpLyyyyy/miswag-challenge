@@ -1,8 +1,10 @@
 export default {
   async getAllBlocks({ commit }) {
     try {
-      const { data } = await this.$axios.get(`/items`)
-      return JSON.stringify(data)
+      const {
+        data: { data },
+      } = await this.$axios.get(`/blocks`)
+      return data
     } catch (err) {
       return {
         data: [],

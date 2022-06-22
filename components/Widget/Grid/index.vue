@@ -3,7 +3,7 @@
     id="GridBlockLayout"
     class="flex items-center justify-center overflow-x-hidden"
     :class="`mx-${properties.marginX} my-${properties.marginY}`"
-    style="max-width: 50vw"
+    style="max-width: 40vw"
   >
     <div
       class="grid"
@@ -16,6 +16,7 @@
       <product-card-layout
         v-for="(product, productIndex) in block.content"
         :key="productIndex"
+        class="w-44"
         :class="`px-${properties.paddingX} py-${properties.paddingY}`"
         :product="product"
       />

@@ -1,3 +1,1 @@
-export default () => ({
-  blocks: [],
-})
+export default () => ({})
