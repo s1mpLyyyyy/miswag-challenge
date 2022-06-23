@@ -17,7 +17,6 @@
       <product-card-layout
         v-for="(product, productIndex) in block.content"
         :key="productIndex"
-        class="w-44"
         :product="product"
         :style="`padding:${properties.paddingY}px ${properties.paddingX}px`"
       />
