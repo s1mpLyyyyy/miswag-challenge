@@ -1,14 +1,13 @@
 <template>
-  <div
-    id="HomePage"
-    class="flex items-center justify-center md:flex-row flex-col flex-wrap"
-  >
-    <component
-      :is="checkComponentType(block.type)"
-      v-for="(block, blockIndex) in blocks"
-      :key="`block-Index__${blockIndex}`"
-      :block="block"
-    />
+  <div id="HomePage" class="flex justify-center">
+    <div class="md:w-10/12 w-full grid md:grid-cols-2 grid-cols-1">
+      <component
+        :is="checkComponentType(block.type)"
+        v-for="(block, blockIndex) in blocks"
+        :key="`block-Index__${blockIndex}`"
+        :block="block"
+      />
+    </div>
   </div>
 </template>
 

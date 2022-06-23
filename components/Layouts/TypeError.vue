@@ -1,5 +1,5 @@
 <template>
-  <div class="text-red-900 text-6xl">Wrong block type</div>
+  <div class="text-red-900 text-3xl">Wrong block type</div>
 </template>
 
 <script>
