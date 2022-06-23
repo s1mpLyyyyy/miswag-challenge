@@ -7,11 +7,12 @@
   >
     <div
       class="w-full grid"
-      :class="[
+      :class="{ horizontal_direction: isHorizontal(properties.direction) }"
+      :style="
         isHorizontal(properties.direction)
-          ? `horizontal_direction grid-rows-${properties.rows}`
-          : `grid-cols-${properties.cols} `,
-      ]"
+          ? `grid-template-rows: repeat(${properties.rows}, minmax(0, 1fr))`
+          : `grid-template-columns: repeat(${properties.cols}, minmax(0, 1fr))`
+      "
     >
       <product-card-layout
         v-for="(product, productIndex) in block.content"
