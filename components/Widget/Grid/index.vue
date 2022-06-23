@@ -6,11 +6,11 @@
     :style="`margin:${properties.marginY}px ${properties.marginX}px;`"
   >
     <div
-      class="grid w-full"
+      class="w-full grid"
       :class="[
         isHorizontal(properties.direction)
           ? `horizontal_direction grid-rows-${properties.rows}`
-          : `grid-cols-${properties.cols}`,
+          : `grid-cols-${properties.cols} `,
       ]"
     >
       <product-card-layout

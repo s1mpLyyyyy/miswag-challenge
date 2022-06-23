@@ -1,4 +1,5 @@
 module.exports = {
+  purge: ['./public/**/*.html'],
   content: [
     './components/**/*.{js,vue,ts}',
     './layouts/**/*.vue',
