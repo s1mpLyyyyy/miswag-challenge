@@ -2,9 +2,7 @@
   <div id="ProductCardLayout">
     <img
       :src="product.image"
-      width="auto"
-      height="auto"
-      class="object-center object-cover"
+      class="object-center object-cover w-full h-full"
       :alt="product.title"
     />
   </div>
