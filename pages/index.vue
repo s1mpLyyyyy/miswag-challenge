@@ -1,7 +1,10 @@
 <template>
-  <div id="HomePage" class="flex items-center justify-center">
+  <div
+    id="HomePage"
+    class="flex items-center justify-center md:flex-row flex-col flex-wrap"
+  >
     <component
-      :is="block.type"
+      :is="checkComponentType(block.type)"
       v-for="(block, blockIndex) in blocks"
       :key="`block-Index__${blockIndex}`"
       :block="block"
@@ -12,9 +15,11 @@
 <script>
 import { mapActions } from 'vuex'
 import LoadingState from '@/components/Statics/Loading'
-import ErrorState from '@/components/Layouts/Error'
+import ErrorState from '@/components/Layouts/LoadError'
+import ErrorComponentType from '@/components/Layouts/TypeError'
 const GridBlockLayout = import('@/components/Widget/Grid/')
 const SliderBlockLayout = import('@/components/Widget/Slider/')
+
 export default {
   name: 'HomePage',
   components: {
@@ -40,6 +45,7 @@ export default {
       delay: 0,
       timeout: 2000,
     }),
+    ErrorComponentType,
   },
   data() {
     return {
@@ -57,6 +63,10 @@ export default {
       try {
         this.blocks = await this.getBlocks()
       } catch (err) {}
+    },
+    checkComponentType(type) {
+      const components = Object.keys(this.$options.components)
+      return components.includes(type) ? type : 'ErrorComponentType'
     },
   },
 }

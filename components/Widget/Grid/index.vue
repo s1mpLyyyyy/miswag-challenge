@@ -2,7 +2,7 @@
   <div
     id="GridBlockLayout"
     class="flex items-center justify-center overflow-x-hidden"
-    :class="`mx-${properties.marginX} my-${properties.marginY}`"
+    :class="`my-${properties.marginY} mx-${properties.marginX}`"
     style="max-width: 40vw"
   >
     <div
@@ -17,7 +17,7 @@
         v-for="(product, productIndex) in block.content"
         :key="productIndex"
         class="w-44"
-        :class="`px-${properties.paddingX} py-${properties.paddingY}`"
+        :class="`py-${properties.paddingY} px-${properties.paddingX}`"
         :product="product"
       />
     </div>
@@ -46,16 +46,32 @@ export default {
   methods: {
     gridStyle() {
       return {
-        paddingY: this.block.properties.inner_top_bottom_spacing ?? 16,
-        paddingX: this.block.properties.inner_left_right_spacing ?? 16,
-        marginY: this.block.properties.outer_top_bottom_margins ?? 8,
-        marginX: this.block.properties.outer_left_right_margins ?? 16,
+        paddingY: this.allowedMarginsSpacing(
+          this.block.properties.inner_top_bottom_spacing
+        ),
+        paddingX: this.allowedMarginsSpacing(
+          this.block.properties.inner_left_right_spacing
+        ),
+        marginY: this.allowedMarginsSpacing(
+          this.block.properties.outer_top_bottom_margins,
+          8
+        ),
+        marginX: this.allowedMarginsSpacing(
+          this.block.properties.outer_left_right_margins
+        ),
         rows: this.block.properties.rows ?? 1,
         cols: this.block.properties.cols ?? 1,
         direction: this.block.properties.direction ?? 'vertical',
       }
     },
+
     isHorizontal: (direction) => direction === 'horizontal',
+
+    checkMarginSpace: (space) => space <= 32 && space >= 0,
+
+    allowedMarginsSpacing(space, value = 16) {
+      return this.checkMarginSpace(space) ? space : value
+    },
   },
 }
 </script>

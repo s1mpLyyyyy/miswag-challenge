@@ -25,6 +25,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => true,
+      /**
+       * hasIndicator properties will control the visibility of the slider dots
+       * if hasIndicator is true & the slider has more than one slide the dots
+       * will be appeared, otherwise the dots visibility will be false.
+       */
     },
   },
 
@@ -40,7 +45,6 @@ export default {
       },
     }
   },
-
   computed: {},
   mounted() {},
   methods: {},
