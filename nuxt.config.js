@@ -1,14 +1,18 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'miswag-challenge',
+    title: '🔥 Miswag challenge',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'a challenge for hiring',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -35,16 +39,9 @@ export default {
   modules: ['@nuxtjs/axios'],
 
   axios: {
-    baseURL: 'https://da61a041-b9e1-47ab-b67c-7ef80ed403dc.mock.pstmn.io', // Used as fallback if no runtime config is provided
+    baseURL: 'https://da61a041-b9e1-47ab-b67c-7ef80ed403dc.mock.pstmn.io',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    postcss: {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
-      },
-    },
-  },
+  build: {},
 }

@@ -2,8 +2,8 @@
   <div
     id="SliderBlockLayout"
     class="flex justify-center items-center"
-    :class="`my-${properties.marginY} mx-${properties.marginX}`"
     style="max-width: 40vw"
+    :style="`margin:${properties.marginY}px ${properties.marginX}px;`"
   >
     <slick-slider-layout
       :slider-speed="properties.slideInterval"
@@ -48,12 +48,24 @@ export default {
         slideInterval: this.convertToMilisec(
           this.block.properties.slide_interval
         ),
-        marginY: this.block.properties.top_bottom_margins ?? 0,
-        marginX: this.block.properties.left_right_margins ?? 0,
+        marginY: this.allowedMargins(
+          this.block.properties.top_bottom_margins,
+          0
+        ),
+        marginX: this.allowedMargins(
+          this.block.properties.left_right_margins,
+          0
+        ),
         hasIndicator: this.block.properties.has_indicator ?? true,
       }
     },
     convertToMilisec: (sec = 0) => sec * 1000,
+
+    checkMargin: (value) => value <= 32 && value >= 0,
+
+    allowedMargins(value, defaultValue = 16) {
+      return this.checkMargin(value) ? value : defaultValue
+    },
   },
 }
 </script>

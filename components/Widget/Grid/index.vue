@@ -2,11 +2,11 @@
   <div
     id="GridBlockLayout"
     class="flex items-center justify-center overflow-x-hidden"
-    :class="`my-${properties.marginY} mx-${properties.marginX}`"
     style="max-width: 40vw"
+    :style="`margin:${properties.marginY}px ${properties.marginX}px;`"
   >
     <div
-      class="grid"
+      class="grid w-full"
       :class="[
         isHorizontal(properties.direction)
           ? `horizontal_direction grid-rows-${properties.rows}`
@@ -17,8 +17,8 @@
         v-for="(product, productIndex) in block.content"
         :key="productIndex"
         class="w-44"
-        :class="`py-${properties.paddingY} px-${properties.paddingX}`"
         :product="product"
+        :style="`padding:${properties.paddingY}px ${properties.paddingX}px`"
       />
     </div>
   </div>
@@ -67,10 +67,10 @@ export default {
 
     isHorizontal: (direction) => direction === 'horizontal',
 
-    checkMarginSpace: (space) => space <= 32 && space >= 0,
+    checkMarginSpace: (value) => value <= 32 && value >= 0,
 
-    allowedMarginsSpacing(space, value = 16) {
-      return this.checkMarginSpace(space) ? space : value
+    allowedMarginsSpacing(value, defaultValue = 16) {
+      return this.checkMarginSpace(value) ? value : defaultValue
     },
   },
 }
