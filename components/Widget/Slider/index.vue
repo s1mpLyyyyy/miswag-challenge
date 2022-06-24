@@ -47,24 +47,17 @@ export default {
         slideInterval: this.convertToMilisec(
           this.block.properties.slide_interval
         ),
-        marginY: this.allowedMargins(
-          this.block.properties.top_bottom_margins,
-          0
-        ),
-        marginX: this.allowedMargins(
-          this.block.properties.left_right_margins,
-          0
-        ),
+        marginY: this.allowedMargins(this.block.properties.top_bottom_margins),
+        marginX: this.allowedMargins(this.block.properties.left_right_margins),
         hasIndicator: this.block.properties.has_indicator ?? true,
       }
     },
     convertToMilisec: (sec = 0) => sec * 1000,
 
-    checkMargin: (value) => value <= 32 && value >= 0,
-
-    allowedMargins(value, defaultValue = 16) {
+    allowedMargins(value, defaultValue = 0) {
       return this.checkMargin(value) ? value : defaultValue
     },
+    checkMargin: (value) => value <= 32 && value >= 0,
   },
 }
 </script>

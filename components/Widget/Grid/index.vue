@@ -66,11 +66,10 @@ export default {
 
     isHorizontal: (direction) => direction === 'horizontal',
 
-    checkMarginSpace: (value) => value <= 32 && value >= 0,
-
     allowedMarginsSpacing(value, defaultValue = 16) {
       return this.checkMarginSpace(value) ? value : defaultValue
     },
+    checkMarginSpace: (value) => value <= 32 && value >= 0,
   },
 }
 </script>

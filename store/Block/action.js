@@ -1,5 +1,5 @@
 export default {
-  async getAllBlocks({ commit }) {
+  async getAllBlocks() {
     try {
       const {
         data: { data },

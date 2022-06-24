@@ -13,9 +13,10 @@
 
 <script>
 import { mapActions } from 'vuex'
-import LoadingState from '@/components/Statics/Loading'
-import ErrorState from '@/components/Layouts/LoadError'
-import ErrorComponentType from '@/components/Layouts/TypeError'
+import LoadingState from '@/components/Layouts/Loading/Skeleton'
+import ErrorState from '@/components/Layouts/Error/LoadError'
+import ErrorComponentType from '@/components/Layouts/Error/TypeError'
+
 const GridBlockLayout = import('@/components/Widget/Grid/')
 const SliderBlockLayout = import('@/components/Widget/Slider/')
 
