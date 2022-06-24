@@ -39,7 +39,7 @@ export default {
   modules: ['@nuxtjs/axios'],
 
   axios: {
-    baseURL: 'https://da61a041-b9e1-47ab-b67c-7ef80ed403dc.mock.pstmn.io',
+    baseURL: 'https://9c79eb3e-75a7-427d-b3e5-4fd521ddf45a.mock.pstmn.io',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

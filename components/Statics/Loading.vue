@@ -1,7 +1,7 @@
 <template>
   <div
-    class="bg-gray-300 flex animate-pulse rounded-2xl m-20"
-    style="height: 40vh; width: 40vw"
+    class="bg-gray-300 flex animate-pulse rounded-2xl md:m-20 m-4 md:w-11/12 w-full"
+    style="height: 40vh"
   ></div>
 </template>
 

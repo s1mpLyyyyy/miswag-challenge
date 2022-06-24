@@ -2,7 +2,6 @@
   <div
     id="SliderBlockLayout"
     class="flex justify-center items-center"
-    style="max-width: 40vw"
     :style="`margin:${properties.marginY}px ${properties.marginX}px;`"
   >
     <slick-slider-layout

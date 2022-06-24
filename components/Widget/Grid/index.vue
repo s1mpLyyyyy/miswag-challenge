@@ -2,7 +2,6 @@
   <div
     id="GridBlockLayout"
     class="flex items-center justify-center overflow-x-hidden"
-    style="max-width: 40vw"
     :style="`margin:${properties.marginY}px ${properties.marginX}px;`"
   >
     <div
