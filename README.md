@@ -4,12 +4,20 @@
 
 This Challenge is hosted on [Netlify](https://www.netlify.com/) at [miswag-challenge.netlify](https://miswag-challenge.netlify.app/) 
 
+
 ## Built With
 
 - [NuxtJS 2](https://nuxtjs.org/)
 - [Tailwind css](https://tailwindcss.com/)
-- [Vuex](https://vuex.vuejs.org/)
+
+
+
+## Dependencies
+
+- [Vuex state mangement](https://vuex.vuejs.org/)
 - [Vue slick carousel slider](https://gs-shop.github.io/vue-slick-carousel/#/)
+- [Postman for mocking API](https://www.postman.com/)
+
 
 
 ## Installation
