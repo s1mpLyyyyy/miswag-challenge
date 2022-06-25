@@ -24,7 +24,7 @@ $ git clone https://github.com/your_username_/miswag-challenge.git
 $ npm install 
 ```
 
-**run localy**
+**Run localy**
 ```bash
 $ npm run dev
 ```
